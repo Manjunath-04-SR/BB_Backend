@@ -48,6 +48,10 @@ app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 app.use(morgan("dev"));
 
 // Health check
+app.get("/api", (_req, res) => {
+  res.json({ status: "ok", message: "BeyondBasic API is running", timestamp: new Date().toISOString() });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", message: "BeyondBasic API is running", timestamp: new Date().toISOString() });
 });
